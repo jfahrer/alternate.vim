@@ -4,15 +4,15 @@ function alternate#types#Javascript()
   let b:alternate_test_token_location = "$"
 
   if s:Exists('app/assets/javascripts')
-    let b:alternate_source_dirs = "app/assets/javascripts"
+    let b:alternate_source_dirs = "app/assets/javascripts/**"
   else
     let b:alternate_source_dirs = "**"
   endif
 
   if s:Exists('spec/javascripts')
-    let b:alternate_test_dirs  = "spec/javascripts"
+    let b:alternate_test_dirs  = "spec/javascripts/**"
   elseif s:Exists('spec')
-    let b:alternate_test_dirs  = "spec"
+    let b:alternate_test_dirs  = "spec/**"
   else
     let b:alternate_test_dirs   = "**"
   endif
@@ -26,18 +26,18 @@ function alternate#types#Ruby()
   let b:alternate_test_token_location = "$"
 
   if s:Exists('app')
-    let b:alternate_source_dirs = "app,lib"
+    let b:alternate_source_dirs = "app/**,lib/**"
   elseif s:Exists('lib')
-    let b:alternate_source_dirs = "lib"
+    let b:alternate_source_dirs = "lib/**"
   else
     let b:alternate_source_dirs = "**"
   endif
 
   if s:Exists('spec')
-    let b:alternate_test_dirs  = "spec"
+    let b:alternate_test_dirs  = "spec/**"
     let b:alternate_test_token = "_spec"
   elseif s:Exists('test')
-    let b:alternate_test_dirs  = "test"
+    let b:alternate_test_dirs  = "test/**"
   else
     let b:alternate_test_dirs  = "**"
   endif
@@ -53,7 +53,7 @@ function alternate#types#Python()
   let b:alternate_source_dirs = "**"
 
   if s:Exists('test')
-    let b:alternate_test_dirs  = "test"
+    let b:alternate_test_dirs  = "test/**"
   else
     let b:alternate_test_dirs  = "**"
   endif
@@ -72,7 +72,7 @@ function alternate#types#Haskell()
   " Cabal project recommended test directory:
   " http://www.haskell.org/haskellwiki/Structure_of_a_Haskell_project
   if s:Exists('testsuite/tests/')
-    let b:alternate_test_dirs  = "testsuite/tests"
+    let b:alternate_test_dirs  = "testsuite/tests/**"
   else
     let b:alternate_test_dirs  = "**"
   endif
@@ -84,8 +84,8 @@ function alternate#types#Cpp()
   let b:alternate_test_token          = "Test"
   let b:alternate_test_token_location = "^"
 
-  let b:alternate_source_dirs = "**,.."
-  let b:alternate_test_dirs  = "test,**,."
+  let b:alternate_source_dirs = "**,../**"
+  let b:alternate_test_dirs  = "test/**,**,."
 
   let b:alternate_enabled = 1
 endfunction

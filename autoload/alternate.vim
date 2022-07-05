@@ -76,7 +76,7 @@ function s:FindTestFiles(source_file_name, extension)
 endfunction
 
 function s:FindFiles(search_dirs, file_name, file_extension)
-  return split(globpath(a:search_dirs, '**/' . a:file_name . '.' .a:file_extension), '\n')
+  return split(globpath(a:search_dirs, a:file_name . '.' .a:file_extension), '\n')
 endfunction
 
 function s:FindTestToken()
@@ -86,4 +86,3 @@ endfunction
 function s:ParentDirectoryName(path)
   return fnamemodify(a:path, ':h:t')
 endfunction
-
